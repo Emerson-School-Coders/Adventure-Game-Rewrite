@@ -41,7 +41,7 @@ def title_screen():
     print("\n"+line)
     input_g=input_main(["N","R","T","E"],"(N)ew game, (R)esume game, (T)utorial, (E)xit")
     if input_g=="N":
-        print("Coming soon!")
+        new_game()
     elif input_g=="R":
         print("Coming soon!")
     elif input_g=="T":
@@ -49,3 +49,7 @@ def title_screen():
     elif input_g=="E":
         print_slow("Exiting...")
         exit()
+def new_game():
+    game_main([],10,10,[])
+    #[worldarr],gold,health,items
+    #new_game calls game_main with basic init settings
