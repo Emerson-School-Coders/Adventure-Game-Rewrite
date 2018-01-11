@@ -4,8 +4,18 @@
 import math
 import random
 import time
+import sys
 
-#libs imported, now we can make the function for taking input, hope this works
+#set the --- var
+line="----------"
+
+#libs imported
+
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.07)
 def input_gnui(input_array,input_q):
     input_t=False
     while input_t not in input_array:
@@ -25,3 +35,17 @@ def input_main(input_array,input_m):
         input_q_r+=str(item).upper()+", "
     input_q_r=input_q_r[:-2]+": "
     return input_gnui_wm(input_array_r,input_q_r,input_m)
+def title_screen():
+    #title screen of game
+    print_slow("The Adventure Game")
+    print("\n"+line)
+    input_g=input_main(["N","R","T","E"],"(N)ew game, (R)esume game, (T)utorial, (E)xit")
+    if input_g=="N":
+        print("Coming soon!")
+    elif input_g=="R":
+        print("Coming soon!")
+    elif input_g=="T":
+        print("Coming soon!")
+    elif input_g=="E":
+        print_slow("Exiting...")
+        exit()
