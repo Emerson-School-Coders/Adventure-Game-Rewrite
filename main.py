@@ -5,6 +5,7 @@ import math
 import random
 import time
 import sys
+import os
 
 #set the --- var
 line="----------"
@@ -39,7 +40,7 @@ def title_screen():
     #title screen of game
     print_slow("The Adventure Game")
     print("\n"+line)
-    input_g=input_main(["N","R","T","E"],"(N)ew game, (R)esume game, (T)utorial, (E)xit")
+    input_g=input_main(["N","R","T","E", "S"],"(N)ew game, (R)esume game, (T)utorial, (E)xit, (S)ettings")
     if input_g=="N":
         new_game()
     elif input_g=="R":
@@ -50,6 +51,34 @@ def title_screen():
         print_slow("Exiting...")
         exit()
 def new_game():
-    game_main([],10,10,[])
+    game_main([{0:tutorial_world,1:earth_main_world},0],10,10,[])
     #[worldarr],gold,health,items
     #new_game calls game_main with basic init settings
+def save_data(data_arr,save_n):
+    pass
+def load_data(save_n):
+    pass
+#world defs here
+
+#game main loop here
+def game_main(world_array_l,gold_l,health_l,items_l):
+    #main game loop
+    world_array=world_array_l
+    gold=gold_l
+    health=health_l
+    items=items_l
+    game_p=True
+    while game_p:
+        turn_ret=world_array[0][world_array[1]]()
+        if turn_ret[0]==True:#this means we're rewriting main vars, otherwise we're just updating some
+            world_array=turn_ret[1]
+            gold=turn_ret[2]
+            health=turn_ret[3]
+            items=turn_ret[4]
+        else:
+            gold+=turn_ret[2]
+            health+=turn_ret[3]
+            for item in turn_ret[4]:
+                items.append(item)
+            for item in turn_ret[5]:
+                items.remove(item)
