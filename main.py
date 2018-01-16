@@ -59,7 +59,27 @@ def save_data(data_arr,save_n):
 def load_data(save_n):
     pass
 #world defs here
-
+def tutorial_world(world_array_l,gold_l,health_l,items_l):
+    option=random.randint(1,10)
+    greturn=0
+    hreturn=0
+    itemadd=[]
+    itemremove
+    if option==1:
+        print("You are walking and you see an old chest on the ground.")
+        choice=input_main(["Y","N"],"Do you open it?")
+        if choice=="Y":
+            if random.randint(0,2)==0:
+                print("The chest was rigged to explosives.  You are knocked off of the path and into the thick forest.  You lose one life.")
+                lreturn=-1
+            else:
+                item_of_world=random.randint(0,len(world_array[2][0][0]))
+                print("You found a "+item_of_world[0]+"!")
+                itemadd.append(item_of_world)
+                world_array[2][0][0].remove(item_of_world)
+    return [False,0,greturn,hreturn,itemadd,itemremove]
+def earth_main_world():
+    return [False,0,0,0,[],[]]
 #game main loop here
 def game_main(world_array_l,gold_l,health_l,items_l):
     #main game loop
@@ -68,6 +88,7 @@ def game_main(world_array_l,gold_l,health_l,items_l):
     health=health_l
     items=items_l
     game_p=True
+    world_array[2][0][0]=[["Sword",["w",1],0]]
     while game_p:
         turn_ret=world_array[0][world_array[1]](world_array,gold,health,items)
         if turn_ret[0]==True:#this means we're rewriting main vars, otherwise we're just updating some
@@ -82,3 +103,5 @@ def game_main(world_array_l,gold_l,health_l,items_l):
                 items.append(item)
             for item in turn_ret[5]:
                 items.remove(item)
+            world_array=turn_ret[1]
+title_screen()
