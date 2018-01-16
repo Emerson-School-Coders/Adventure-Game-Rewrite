@@ -69,7 +69,7 @@ def game_main(world_array_l,gold_l,health_l,items_l):
     items=items_l
     game_p=True
     while game_p:
-        turn_ret=world_array[0][world_array[1]]()
+        turn_ret=world_array[0][world_array[1]](world_array,gold,health,items)
         if turn_ret[0]==True:#this means we're rewriting main vars, otherwise we're just updating some
             world_array=turn_ret[1]
             gold=turn_ret[2]
