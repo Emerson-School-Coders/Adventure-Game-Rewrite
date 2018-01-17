@@ -51,7 +51,7 @@ def title_screen():
         print_slow("Exiting...")
         exit()
 def new_game():
-    game_main([{0:tutorial_world,1:earth_main_world},0],10,10,[])
+    game_main([{0:tutorial_world,1:earth_main_world},0,[[[["Sword",["w",1],0], ["Apple",["f",2.5],0], ["Firework Rocket",["u",0],0]]]]],10,10,[])
     #[worldarr],gold,health,items
     #new_game calls game_main with basic init settings
 def save_data(data_arr,save_n):
@@ -64,7 +64,8 @@ def tutorial_world(world_array_l,gold_l,health_l,items_l):
     greturn=0
     hreturn=0
     itemadd=[]
-    itemremove
+    itemremove=[]
+    world_array=world_array_l
     if option==1:
         print("You are walking and you see an old chest on the ground.")
         choice=input_main(["Y","N"],"Do you open it?")
@@ -73,11 +74,14 @@ def tutorial_world(world_array_l,gold_l,health_l,items_l):
                 print("The chest was rigged to explosives.  You are knocked off of the path and into the thick forest.  You lose one life.")
                 lreturn=-1
             else:
-                item_of_world=random.randint(0,len(world_array[2][0][0]))
-                print("You found a "+item_of_world[0]+"!")
-                itemadd.append(item_of_world)
-                world_array[2][0][0].remove(item_of_world)
-    return [False,0,greturn,hreturn,itemadd,itemremove]
+                try:
+                    item_of_world=world_array[2][0][0][random.randint(0,len(world_array[2][0][0])-1)]
+                    print("You found a "+item_of_world[0]+"!")
+                    itemadd.append(item_of_world)
+                    world_array[2][0][0].remove(item_of_world)
+                except:
+                    print("The chest was empty.")
+    return [False,world_array,greturn,hreturn,itemadd,itemremove]
 def earth_main_world():
     return [False,0,0,0,[],[]]
 #game main loop here
@@ -88,7 +92,6 @@ def game_main(world_array_l,gold_l,health_l,items_l):
     health=health_l
     items=items_l
     game_p=True
-    world_array[2][0][0]=[["Sword",["w",1],0]]
     while game_p:
         turn_ret=world_array[0][world_array[1]](world_array,gold,health,items)
         if turn_ret[0]==True:#this means we're rewriting main vars, otherwise we're just updating some
