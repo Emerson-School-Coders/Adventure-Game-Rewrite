@@ -20,6 +20,7 @@
                         {
                             "Y":
                                 {
+                                    "type": "if",
                                     "if":
                                         {
                                             "true": 
@@ -30,21 +31,24 @@
                                                             "text": "You open the chest!",
                                                             "item_gain_random_wr": "chests",
                                                             "text2": "You found a |RECENT|",
-                                                            "world_r_remove": "|RECENT|"
+                                                            "world_r_remove": "|RECENT|",
+                                                            "type": "normal"
                                                         }
                                                 },
                                             "false":
                                                 {
                                                     "execute":
                                                         {
-                                                            text: "The chest was empty.  You continue walking."
+                                                            "text": "The chest was empty.  You continue walking.",
+                                                            "type": "normal"
                                                         }
                                                 }
                                         }
                                 },
                             "N":
                                 {
-                                    "text": "You choose to not open the chest.  You continue walking."
+                                    "text": "You choose to not open the chest.  You continue walking.",
+                                    "type": "normal"
                                 }
                         },
                     "type": "case"
