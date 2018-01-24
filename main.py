@@ -54,14 +54,16 @@ def title_screen():
 def new_game():
     worlds_file=json.load(open("worlds.json","r"))
     worlds=[]
+    worldlist=[]
     for world in worlds_file["worlds"]:
         try:
-            cworld=open(world)
+            cworld=open(world,"r")
             cworld_file=json.load(cworld)
             worlds.append(cworld_file)
+            worldlist.append(world)
         except:
             print(cworld+" could not be loaded!")
-    game_main([{0:tutorial_world,1:earth_main_world},0,[[[["Sword",["w",1],0], ["Apple",["f",2.5],0], ["Firework Rocket",["u",0],0]]]]],10,10,[],worlds,{})
+    game_main(worldlist,10,10,[],worlds)
     #[worldarr],gold,health,items,worlds
     #new_game calls game_main with basic init settings
 def save_data(data_arr,save_n):
@@ -69,7 +71,7 @@ def save_data(data_arr,save_n):
 def load_data(save_n):
     pass
 #world defs here
-def tutorial_world(world_array_l,gold_l,health_l,items_l):
+def tutorial_world(worldlist,gold_l,health_l,items_l,worlds):
     option=random.randint(1,10)
     greturn=0
     hreturn=0
@@ -95,7 +97,8 @@ def tutorial_world(world_array_l,gold_l,health_l,items_l):
 def earth_main_world():
     return [False,0,0,0,[],[]]
 #game main loop here
-def game_main(world_array_l,gold_l,health_l,items_l):
+def game_main(worldlist,gold_l,health_l,items_l,worlds):
+    print(worlds)
     #main game loop
     world_array=world_array_l
     gold=gold_l
