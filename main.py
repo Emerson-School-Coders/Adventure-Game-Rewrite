@@ -6,6 +6,7 @@ import random
 import time
 import sys
 import os
+import json
 
 #set the --- var
 line="----------"
@@ -51,8 +52,17 @@ def title_screen():
         print_slow("Exiting...")
         exit()
 def new_game():
-    game_main([{0:tutorial_world,1:earth_main_world},0,[[[["Sword",["w",1],0], ["Apple",["f",2.5],0], ["Firework Rocket",["u",0],0]]]]],10,10,[])
-    #[worldarr],gold,health,items
+    worlds_file=json.load(open("worlds.json","r"))
+    worlds=[]
+    for world in worlds_file["worlds"]:
+        try:
+            cworld=open(world)
+            cworld_file=json.load(cworld)
+            worlds.append(cworld_file)
+        except:
+            print(cworld+" could not be loaded!")
+    game_main([{0:tutorial_world,1:earth_main_world},0,[[[["Sword",["w",1],0], ["Apple",["f",2.5],0], ["Firework Rocket",["u",0],0]]]]],10,10,[],worlds,{})
+    #[worldarr],gold,health,items,worlds
     #new_game calls game_main with basic init settings
 def save_data(data_arr,save_n):
     pass
