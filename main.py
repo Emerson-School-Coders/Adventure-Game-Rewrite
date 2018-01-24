@@ -61,6 +61,7 @@ def new_game():
             cworld_file=json.load(cworld)
             worlds.append(cworld_file)
             worldlist.append(world)
+            world_data.append(world["world_data"])
         except:
             print(cworld+" could not be loaded!")
     game_main(worldlist,10,10,[],worlds)
@@ -94,10 +95,8 @@ def tutorial_world(worldlist,gold_l,health_l,items_l,worlds):
                 except:
                     print("The chest was empty.")
     return [False,world_array,greturn,hreturn,itemadd,itemremove]
-def earth_main_world():
-    return [False,0,0,0,[],[]]
 #game main loop here
-def game_main(worldlist,gold_l,health_l,items_l,worlds):
+def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data):
     print(worlds)
     #main game loop
     world_array=world_array_l
@@ -106,18 +105,5 @@ def game_main(worldlist,gold_l,health_l,items_l,worlds):
     items=items_l
     game_p=True
     while game_p:
-        turn_ret=world_array[0][world_array[1]](world_array,gold,health,items)
-        if turn_ret[0]==True:#this means we're rewriting main vars, otherwise we're just updating some
-            world_array=turn_ret[1]
-            gold=turn_ret[2]
-            health=turn_ret[3]
-            items=turn_ret[4]
-        else:
-            gold+=turn_ret[2]
-            health+=turn_ret[3]
-            for item in turn_ret[4]:
-                items.append(item)
-            for item in turn_ret[5]:
-                items.remove(item)
-            world_array=turn_ret[1]
+        interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data)
 title_screen()
