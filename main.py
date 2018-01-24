@@ -64,39 +64,17 @@ def new_game():
             world_data.append(world["world_data"])
         except:
             print(cworld+" could not be loaded!")
-    game_main(worldlist,10,10,[],worlds)
+    game_main(worldlist,10,10,[],worlds,0)
     #[worldarr],gold,health,items,worlds
     #new_game calls game_main with basic init settings
 def save_data(data_arr,save_n):
     pass
 def load_data(save_n):
     pass
-#world defs here
-def tutorial_world(worldlist,gold_l,health_l,items_l,worlds):
-    option=random.randint(1,10)
-    greturn=0
-    hreturn=0
-    itemadd=[]
-    itemremove=[]
-    world_array=world_array_l
-    if option==1:
-        print("You are walking and you see an old chest on the ground.")
-        choice=input_main(["Y","N"],"Do you open it?")
-        if choice=="Y":
-            if random.randint(0,2)==0:
-                print("The chest was rigged to explosives.  You are knocked off of the path and into the thick forest.  You lose one life.")
-                lreturn=-1
-            else:
-                try:
-                    item_of_world=world_array[2][0][0][random.randint(0,len(world_array[2][0][0])-1)]
-                    print("You found a "+item_of_world[0]+"!")
-                    itemadd.append(item_of_world)
-                    world_array[2][0][0].remove(item_of_world)
-                except:
-                    print("The chest was empty.")
-    return [False,world_array,greturn,hreturn,itemadd,itemremove]
 #game main loop here
-def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data):
+def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data):
+    
+def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
     print(worlds)
     #main game loop
     world_array=world_array_l
