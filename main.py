@@ -73,30 +73,73 @@ def save_data(data_arr,save_n):
 def load_data(save_n):
     pass
 #game main loop here
-def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
+def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw_l):
+    items=items_l
+    gold=gold_l
+    health=health_l
+    world_data=world_data_l
+    cw=cw_l
     if partial_move["type"]=="normal":
         print(partial_move["text"])
     elif partial_move["type"]=="add_items":
-        items=items_l
         world_data_n=world_data
+        print(partial_move["text"])
         try:
-            items_l.append(world_data["item_gain_random_wr"])#not done need to fix
-def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
-    current_world_data=worlds[cw]
+            item_to_act_on=world_data[partial_move["item_gain_random_wr"]][random.randint(0,len(world_data[partial_move["item_gain_random_wr"]])-1)]
+            items.append(item_to_act_on)#not done need to fix
+            try:
+                if partial_move["world_r_remove"]:
+                    world_data_n.remove(item_to_act_on)
+            except:
+                pass
+            try:
+                print(partial_move["text2"].replace("|RECENT|", item_to_act_on["name"]))
+            except:
+                pass
+        except KeyError:
+            pass
+        except ValueError:
+            print(partial_move["items_gone"])
+    elif partial_move["type"]=="choice":
+        print(partial_move["text"])
+        
+    return [gold,health,items,world_data,cw]
+def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw_l):
+    current_world_data=worlds[cw_l]
     game_choices=current_world_data["game_loop"]
     move=random.randint(0,len(game_choices)-1)
     move_data=game_choices[move]
+    gold=gold_l
+    health=health_l
+    items=items_l
+    world_data=world_data_l
+    cw=cw_l
     for partial_move in move_data:
-        partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
-    print(current_world_data)
-    time.sleep(10)
-def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
-    print(worlds)
+        print(partial_move)
+        p_m_r=partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+        gold=p_m_r[0]
+        health=p_m_r[1]
+        items=p_m_r[2]
+        world_data=p_m_r[3]
+        cw=p_m_r[4]
+    input()
+    #print(current_world_data)
+    #time.sleep(10)
+    return [True,gold,health,items,world_data,cw]
+def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw_l):
+    #print(worlds)
     #main game loop
     gold=gold_l
     health=health_l
     items=items_l
+    world_data=world_data_l
+    cw=cw_l
     game_p=True
     while game_p:
-        interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+        changes=interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+        gold=changes[1]
+        health=changes[2]
+        items=changes[3]
+        world_data=changes[4]
+        cw=changes[5]
 title_screen()

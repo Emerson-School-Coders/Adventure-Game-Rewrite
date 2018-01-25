@@ -31,7 +31,8 @@
                                                             "text": "You open the chest!",
                                                             "item_gain_random_wr": "chests",
                                                             "text2": "You found a |RECENT|",
-                                                            "world_r_remove": "|RECENT|",
+                                                            "world_r_remove": true,
+                                                            "items_gone": "The chest was empty.",
                                                             "type": "add_items"
                                                         }
                                                 },
@@ -52,6 +53,12 @@
                                 }
                         },
                     "type": "case"
+                }
+            ],
+            [
+                {
+                    "type": "normal",
+                    "text": "You continue walking."
                 }
             ]
         ],
