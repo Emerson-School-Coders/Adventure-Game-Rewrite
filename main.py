@@ -55,16 +55,17 @@ def new_game():
     worlds_file=json.load(open("worlds.json","r"))
     worlds=[]
     worldlist=[]
+    world_data=[]
     for world in worlds_file["worlds"]:
         try:
             cworld=open(world,"r")
             cworld_file=json.load(cworld)
             worlds.append(cworld_file)
             worldlist.append(world)
-            world_data.append(world["world_data"])
+            world_data.append(cworld_file["world_data"])
         except:
-            print(cworld+" could not be loaded!")
-    game_main(worldlist,10,10,[],worlds,0)
+            print("A world could not be loaded!")
+    game_main(worldlist,10,10,[],worlds,world_data,0)
     #[worldarr],gold,health,items,worlds
     #new_game calls game_main with basic init settings
 def save_data(data_arr,save_n):
@@ -72,16 +73,30 @@ def save_data(data_arr,save_n):
 def load_data(save_n):
     pass
 #game main loop here
-def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data):
-    
+def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
+    if partial_move["type"]=="normal":
+        print(partial_move["text"])
+    elif partial_move["type"]=="add_items":
+        items=items_l
+        world_data_n=world_data
+        try:
+            items_l.append(world_data["item_gain_random_wr"])#not done need to fix
+def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
+    current_world_data=worlds[cw]
+    game_choices=current_world_data["game_loop"]
+    move=random.randint(0,len(game_choices)-1)
+    move_data=game_choices[move]
+    for partial_move in move_data:
+        partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+    print(current_world_data)
+    time.sleep(10)
 def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data,cw):
     print(worlds)
     #main game loop
-    world_array=world_array_l
     gold=gold_l
     health=health_l
     items=items_l
     game_p=True
     while game_p:
-        interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data)
+        interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
 title_screen()
