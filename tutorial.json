@@ -32,7 +32,7 @@
                                                             "item_gain_random_wr": "chests",
                                                             "text2": "You found a |RECENT|",
                                                             "world_r_remove": "|RECENT|",
-                                                            "type": "normal"
+                                                            "type": "add_items"
                                                         }
                                                 },
                                             "false":
@@ -55,9 +55,9 @@
                 }
             ]
         ],
-    world_file: "tutorial.json",
-    world_name: "Tutorial World",
-    world_data:
+    "world_file": "tutorial.json",
+    "world_name": "Tutorial World",
+    "world_data":
         {
             "chests":
             [
