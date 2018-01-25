@@ -1,7 +1,6 @@
 {
     "worlds":
     [        
-        "tutorial.xwd",
-        "earth.xwd"
+        "tutorial.json"
     ]
 }
