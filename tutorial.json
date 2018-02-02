@@ -38,12 +38,22 @@
 		[{
 			"type": "normal",
 			"text": "You continue walking."
+		}],
+		[{
+			"type": "normal",
+			"text": "The dread sets in... you're never going to get out of here, are you?"
+		}],
+		[{
+			"type": "add_items",
+			"item_gain_random_wr": "apple_tree",
+			"text": "You find an apple tree.  You pick an apple."
 		}]
 	],
 	"world_file": "tutorial.json",
 	"world_name": "Tutorial World",
 	"world_data": {
-		"chests": [{
+		"chests": [
+            {
 				"name": "Apple",
 				"itemdata": [
 					"f",
@@ -80,6 +90,504 @@
 				"itemdata": [
 					"f",
 					3
+				],
+				"world_name": "tutorial.json"
+			}
+		],
+		"apple_tree": [
+            {
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Apple",
+				"itemdata": [
+					"f",
+					2.5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Ripe Apple",
+				"itemdata": [
+					"f",
+					5
+				],
+				"world_name": "tutorial.json"
+			},
+			{
+				"name": "Golden Apple",
+				"itemdata": [
+					"f",
+					10
 				],
 				"world_name": "tutorial.json"
 			}
