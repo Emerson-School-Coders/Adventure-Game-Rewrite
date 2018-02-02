@@ -82,14 +82,13 @@ def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world
     if partial_move["type"]=="normal":
         print(partial_move["text"])
     elif partial_move["type"]=="add_items":
-        world_data_n=world_data
         print(partial_move["text"])
         try:
-            item_to_act_on=world_data[partial_move["item_gain_random_wr"]][random.randint(0,len(world_data[partial_move["item_gain_random_wr"]])-1)]
+            item_to_act_on=world_data_l[cw][partial_move["item_gain_random_wr"]][random.randint(0,len(world_data[cw][partial_move["item_gain_random_wr"]])-1)]
             items.append(item_to_act_on)#not done need to fix
             try:
                 if partial_move["world_r_remove"]:
-                    world_data_n.remove(item_to_act_on)
+                    world_data_l[cw][partial_move["item_gain_random_wr"]].remove(item_to_act_on)
             except:
                 pass
             try:
@@ -102,8 +101,31 @@ def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world
             print(partial_move["items_gone"])
     elif partial_move["type"]=="choice":
         print(partial_move["text"])
-        
-    return [gold,health,items,world_data,cw]
+        choice=input_main(partial_move["choice"]["options"],partial_move["choice"]["text"])
+        new_data=partial_move_run(partial_move["case"][choice],worldlist,gold,health,items,worlds,world_data,cw)
+        gold=new_data[0]
+        health=new_data[1]
+        items=new_data[2]
+        world_data=new_data[3]
+        cw=new_data[4]
+        #that updates data with the return of the choice
+    elif partial_move["type"]=="if":
+        if partial_move["condition"][0]=="containsitems":
+            if len(world_data[cw][partial_move["condition"][1]])!=0:
+                new_data=partial_move_run(partial_move["if"]["true"],worldlist,gold,health,items,worlds,world_data,cw)
+                gold=new_data[0]
+                health=new_data[1]
+                items=new_data[2]
+                world_data=new_data[3]
+                cw=new_data[4]
+            else:
+                new_data=partial_move_run(partial_move["if"]["false"],worldlist,gold,health,items,worlds,world_data,cw)
+                gold=new_data[0]
+                health=new_data[1]
+                items=new_data[2]
+                world_data=new_data[3]
+                cw=new_data[4]
+    return [gold,health,items,world_data_l,cw]
 def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw_l):
     current_world_data=worlds[cw_l]
     game_choices=current_world_data["game_loop"]
