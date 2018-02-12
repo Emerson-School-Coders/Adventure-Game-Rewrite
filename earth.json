@@ -1,0 +1,22 @@
+{
+    "game_loop":
+        [
+            [
+                {
+                    "text": "You are walking and you find a tree of apples.",
+                    "choice":
+                        {
+                            "options":
+                                [
+                                    "Y",
+                                    "N"
+                                ],
+                            "text": "Do you open it?"
+                        },
+                    "type": "choice"
+                }
+            ]
+        ],
+    world_file: "earth.json",
+    world_name: "The Earth"
+}
