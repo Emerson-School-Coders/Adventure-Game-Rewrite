@@ -47,7 +47,11 @@
 			"type": "add_items",
 			"item_gain_random_wr": "apple_tree",
 			"text": "You find an apple tree.  You pick an apple."
-		}]
+		}],
+        [{
+            "type": "normal",
+            "text": "A random old guy walks up to you in the forest while you are walking.  He yells \"YEET!\""
+        }]
 	],
 	"world_file": "tutorial.json",
 	"world_name": "Tutorial World",
