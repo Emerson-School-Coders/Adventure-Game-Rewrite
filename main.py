@@ -80,7 +80,11 @@ def partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world
     world_data=world_data_l
     cw=cw_l
     if partial_move["type"]=="normal":
-        print(partial_move["text"])
+        try:
+            health=health+partial_move["health"]
+        except:
+            pass
+        print(partial_move["text"].replace("|HEALTH|",str(health)))
     elif partial_move["type"]=="add_items":
         print(partial_move["text"])
         try:
@@ -138,7 +142,7 @@ def interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw
     cw=cw_l
     for partial_move in move_data:
         print(partial_move)
-        p_m_r=partial_move_run(partial_move,worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+        p_m_r=partial_move_run(partial_move,worldlist,gold,health,items,worlds,world_data,cw)
         gold=p_m_r[0]
         health=p_m_r[1]
         items=p_m_r[2]
@@ -158,7 +162,7 @@ def game_main(worldlist,gold_l,health_l,items_l,worlds,world_data_l,cw_l):
     cw=cw_l
     game_p=True
     while game_p:
-        changes=interpret_json_game(worldlist,gold_l,health_l,items_l,worlds,world_data,cw)
+        changes=interpret_json_game(worldlist,gold,health,items,worlds,world_data,cw)
         gold=changes[1]
         health=changes[2]
         items=changes[3]

@@ -51,6 +51,28 @@
         [{
             "type": "normal",
             "text": "A random old guy walks up to you in the forest while you are walking.  He yells \"YEET!\""
+        }],
+        [{
+            "type": "choice",
+            "text": "You come to a river.  Do you try to make a raft or do you lie a log across it?",
+            "choice": {
+                "options": [
+                    "R",
+                    "L"
+                ],
+                "text": "Raft or Log?"
+            },
+            "case": {
+                "R": {
+                    "type": "normal",
+                    "text": "You find a raft and cross the river successfully."
+                },
+                "L": {
+                    "type": "normal",
+                    "text": "You cross the river, but after falling off of your log and getting scratched up.  You lose one life, you now have |HEALTH|.",
+                    "health": -1
+                }
+            }
         }]
 	],
 	"world_file": "tutorial.json",
